@@ -1,0 +1,141 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": true,
+        "includes": ["**", "!src/schema.gql"]
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 140,
+        "lineEnding": "lf"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "complexity": {
+                "noBannedTypes": "error",
+                "noExcessiveCognitiveComplexity": {
+                    "level": "warn",
+                    "options": {
+                        "maxAllowedComplexity": 15
+                    }
+                },
+                "noForEach": "off",
+                "useLiteralKeys": "off",
+                "noStaticOnlyClass": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error",
+                "noUnusedVariables": "warn",
+                "useExhaustiveDependencies": "off"
+            },
+            "style": {
+                "noNonNullAssertion": "warn",
+                "useConst": "error",
+                "useImportType": "off",
+                "useNodejsImportProtocol": "error",
+                "useFilenamingConvention": {
+                    "level": "error",
+                    "options": {
+                        "strictCase": true,
+                        "filenameCases": ["kebab-case"]
+                    }
+                },
+                "useNamingConvention": {
+                    "level": "warn",
+                    "options": {
+                        "strictCase": true,
+                        "conventions": [
+                            {
+                                "selector": { "kind": "class" },
+                                "formats": ["PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "interface" },
+                                "formats": ["PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "typeAlias" },
+                                "formats": ["PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "enum" },
+                                "formats": ["PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "enumMember" },
+                                "formats": ["CONSTANT_CASE", "PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "function" },
+                                "formats": ["camelCase", "PascalCase"]
+                            },
+                            {
+                                "selector": { "kind": "variable" },
+                                "formats": ["camelCase", "CONSTANT_CASE", "PascalCase"]
+                            }
+                        ]
+                    }
+                }
+            },
+            "suspicious": {
+                "noExplicitAny": "warn",
+                "noConsole": "warn"
+            },
+            "performance": {
+                "noAccumulatingSpread": "warn"
+            }
+        }
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        },
+        "formatter": {
+            "quoteStyle": "single",
+            "trailingCommas": "all",
+            "semicolons": "always",
+            "arrowParentheses": "always",
+            "bracketSpacing": true
+        }
+    },
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["*.resolver.ts", "*.controller.ts"],
+            "linter": {
+                "rules": {
+                    "correctness": {
+                        "noUnusedVariables": "off"
+                    }
+                }
+            }
+        },
+        {
+            "includes": ["*.spec.ts", "*.e2e-spec.ts", "test/**"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noExplicitAny": "off",
+                        "noConsole": "off"
+                    }
+                }
+            }
+        }
+    ]
+}
