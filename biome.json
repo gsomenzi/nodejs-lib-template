@@ -7,7 +7,7 @@
     },
     "files": {
         "ignoreUnknown": true,
-        "includes": ["**", "!src/schema.gql"]
+        "includes": ["**", "!src/schema.gql", "!scripts/**"]
     },
     "formatter": {
         "enabled": true,

@@ -45,26 +45,23 @@ Template pronto para criação de bibliotecas Node.js com TypeScript, incluindo 
 
 ## Início Rápido
 
-1. Clone ou use este template para criar um novo repositório
-2. Instale as dependências:
+1. Crie um novo repositório usando este template (botão "Use this template" no GitHub)
+2. Clone o repositório criado
+3. Execute o script de setup:
+
+```bash
+node scripts/setup.mjs
+```
+
+O script vai pedir o nome da lib, descrição, URL do repositório e autor — com validação de formato — atualizar o `package.json` e se auto-remover.
+
+4. Instale as dependências:
 
 ```bash
 yarn install
 ```
 
-3. Atualize o `package.json` com o nome da sua lib, repositório e configurações de publicação:
-
-```json
-{
-  "name": "@seu-org/sua-lib",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seu-org/sua-lib.git"
-  }
-}
-```
-
-4. Comece a desenvolver em `src/index.ts`
+5. Comece a desenvolver em `src/index.ts`
 
 ## Scripts Disponíveis
 
